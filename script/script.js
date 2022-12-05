@@ -98,21 +98,19 @@ function draw() {
   )
     endGame();
 
-  // If bird passed the pipe, increase scro
+  // If bird passed the pipe, increase score
   if (
-    bird.x + birdDimension.width >
-      pipe._pipe[0][0].x + pipe._pipe[0][0].width &&
-    bird.x + birdDimension.width - 82 < pipe._pipe[0][1].x
+    bird.x + birdDimension.width > pipe._pipe[0][0].x &&
+    bird.x + birdDimension.width < pipe._pipe[0][0].x + pipe._pipe[0][0].width
   )
     increaseScore();
-  requestAnimationFrame(draw);
 }
 
 function startGame() {
   gameInfo.gameRunning = true;
   // Start adding pipes
   addPipe();
-  gameInfo.running = draw();
+  gameInfo.running = setInterval(draw, 1000 / 60);
 }
 
 function jump() {
@@ -125,10 +123,11 @@ function jump() {
 
 function increaseScore() {
   score++;
-  scoreHolder.innerText = "Score: " + score;
+  scoreHolder.innerText = "Score: " + parseInt(score / 26);
 }
 
 function endGame() {
+  clearInterval(gameInfo.running);
   gameInfo.running = false;
   gameInfo.gameRunning = false;
   gameInfo.isDead = true;
