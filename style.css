@@ -1,0 +1,54 @@
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
+
+:root {
+  --lime: rgb(69, 188, 50);
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  user-select: none;
+}
+
+body {
+  font-family: "Press Start 2P", cursive;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100vh;
+  gap: 30px;
+  background: #222;
+  color: #fefefe;
+}
+
+canvas {
+  border: 10px ridge var(--lime);
+  border-radius: 10px;
+}
+
+.game {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.explain {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.start {
+  font-family: inherit;
+  padding: 10px 20px;
+  border: 7px ridge var(--lime);
+  background: var(--lime);
+  cursor: pointer;
+  border-radius: 10px;
+}
